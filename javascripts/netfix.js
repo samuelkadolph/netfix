@@ -3,7 +3,7 @@ function lookForBillboard() {
   var billboard = divs.iterateNext();
 
   if (billboard !== null) {
-    billboard.setAttribute("hidden", "");
+    billboard.parentNode.removeChild(billboard);
   } else {
     setTimeout(lookForBillboard, 500);
   }
