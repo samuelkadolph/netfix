@@ -1,0 +1,20 @@
+{
+  "content_scripts": [
+    {
+      "js": ["javascripts/netfix.js"],
+      "matches": ["https://www.netflix.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "19": "images/icon19.png",
+    "38": "images/icon38.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "manifest_version": 2,
+  "name": "Netfix",
+  "permissions": ["https://www.netflix.com/*"],
+  "short_name": "Netfix",
+  "version": "0.1.1"
+}
