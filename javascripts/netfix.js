@@ -4,9 +4,12 @@ function lookForBillboard() {
 
   if (billboard !== null) {
     billboard.parentNode.removeChild(billboard);
+    console.log("Netfix: found and removed billboard");
   } else {
     setTimeout(lookForBillboard, 500);
   }
 }
 
 lookForBillboard();
+
+window.addEventListener("popstate", lookForBillboard);
