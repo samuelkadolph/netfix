@@ -5,7 +5,7 @@
       "matches": ["https://www.netflix.com/*"]
     }
   ],
-  "description": "Netfix removes the auto playing preview on Netflix.",
+  "description": "Netfix removes the auto playing previews on Netflix.",
   "icons": {
     "16": "images/icon16.png",
     "19": "images/icon19.png",
