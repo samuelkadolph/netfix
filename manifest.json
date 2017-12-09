@@ -14,7 +14,11 @@
   },
   "manifest_version": 2,
   "name": "Netfix",
-  "permissions": ["https://www.netflix.com/*"],
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "permissions": ["https://www.netflix.com/*", "storage"],
   "short_name": "Netfix",
   "version": "0.1.7"
 }

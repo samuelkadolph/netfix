@@ -1,0 +1,39 @@
+@keyframes spin { 100% { transform: rotate(-360deg) } }
+
+body { width: 400px; margin: 14px; }
+
+div.development { display: none }
+body.development div.development { display: flex }
+
+.setting {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.setting input[type="text"] {
+  width: 285px;
+}
+.setting label {
+  display: inline-block;
+  width: 50px
+}
+
+.checkbox {
+  padding-left: 50px;
+}
+.checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+.checkbox label {
+  width: 267px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.buttons button {
+  margin-left: 6px;
+}

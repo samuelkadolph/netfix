@@ -1,15 +1,20 @@
-function lookForBillboard() {
-  var divs = document.evaluate("//div[contains(concat(' ', @class, ' '), ' billboard-motion ')]", document);
-  var billboard = divs.iterateNext();
+function huntForElement(targetClass) {
+  var divs = document.evaluate("//div[contains(concat(' ', @class, ' '), ' " + targetClass + " ')]", document);
+  var target = divs.iterateNext();
 
-  if (billboard !== null) {
-    billboard.parentNode.removeChild(billboard);
-    console.log("Netfix: found and removed billboard");
+  if (target !== null) {
+    target.parentNode.removeChild(target);
+    console.log("Netfix: found and removed " + targetClass);
   } else {
-    setTimeout(lookForBillboard, 500);
+    setTimeout(huntForElement, 500);
   }
 }
 
-lookForBillboard();
+chrome.storage.local.get(null, function(options) {
+  var targetClass = options.hideWholeBillboard ? "billboard-row" : "billboard-motion";
+  alert("hunting for " + targetClass);
 
-window.addEventListener("popstate", lookForBillboard);
+  huntForElement(targetClass);
+
+  window.addEventListener("popstate", huntForElement.bind(targetClass));
+});

@@ -7,7 +7,7 @@ desc "Build the extension package"
 task :build do
   FileUtils.mkdir_p("pkg")
 
-  sh "zip", package_path, *Dir["images/icon*.png", "javascripts/*.js", "manifest.json"]
+  sh "zip", package_path, *Dir["images/icon*.png", "javascripts/*.js", "stylesheets/*.css", "*.html", "manifest.json"]
 
   puts "Package built and is available at #{package_path}"
 end
