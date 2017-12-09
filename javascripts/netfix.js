@@ -12,7 +12,6 @@ function huntForElement(targetClass) {
 
 chrome.storage.local.get(null, function(options) {
   var targetClass = options.hideWholeBillboard ? "billboard-row" : "billboard-motion";
-  alert("hunting for " + targetClass);
 
   huntForElement(targetClass);
 
