@@ -1,25 +1,12 @@
+var background = chrome.extension.getBackgroundPage();
+
 var optionsCancel = function() {
   close();
 };
 var optionsOK = function() {
-  var options = {
-    hideWholeBillboard: hideWholeBillboardGet()
-  }
-
-  chrome.storage.local.set(options, function() {
-    if (chrome.runtime.lastError) {
-      console.log("optionsOK() chrome.storage.local.set failed:", chrome.runtime.lastError.message);
-    }
-
-    close();
-  });
-};
-
-var hideWholeBillboardGet = function() {
-  return document.getElementById("hideWholeBillboard").checked;
-};
-var hideWholeBillboardSet = function(value) {
-  document.getElementById("hideWholeBillboard").checked = value === true;
+  background.blockPreviewsSet(document.getElementById("blockPreviews").checked);
+  background.hideBillboardSet(document.getElementById("hideBillboard").checked);
+  background.saveOptions(function() { close(); });
 };
 
 document.getElementById("cancel").addEventListener("click", optionsCancel);
@@ -31,6 +18,5 @@ chrome.management.getSelf(function(info) {
   }
 });
 
-chrome.storage.local.get(null, function(options) {
-  hideWholeBillboardSet(options.hideWholeBillboard);
-});
+document.getElementById("blockPreviews").checked = background.blockPreviewsGet() === true;
+document.getElementById("hideBillboard").checked = background.hideBillboardGet() === true;

@@ -1,4 +1,7 @@
 {
+  "background": {
+    "scripts": ["javascripts/background.js"]
+  },
   "content_scripts": [
     {
       "js": ["javascripts/netfix.js"],
@@ -18,7 +21,13 @@
     "page": "options.html",
     "chrome_style": true
   },
-  "permissions": ["https://www.netflix.com/*", "storage"],
+  "permissions": [
+    "https://*.nflxvideo.net/*",
+    "https://www.netflix.com/*",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
   "short_name": "Netfix",
   "version": "0.2.1"
 }
